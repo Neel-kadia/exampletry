@@ -3,11 +3,14 @@ package com.example.CustomerRegistration.service;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.CustomerRegistration.repository.CustomerRepository;
 import com.example.CustomerRegistration.model.Customer;
 
+@Service
 public class CustomerServiceImple implements CustomerService {
 
 	@Autowired
@@ -30,7 +33,7 @@ public class CustomerServiceImple implements CustomerService {
 		if (optional.isPresent()) {
 			customer = optional.get();
 		} else {
-			throw new RuntimeException("customer not found for id " + id);
+			throw new RuntimeException ("customer not found for id " + id);
 		}
 		return customer;
 	}
@@ -39,4 +42,5 @@ public class CustomerServiceImple implements CustomerService {
 	public void deleteCustomerById(long id) {
 		customerRepository.deleteById(id);
 	}
+
 }
