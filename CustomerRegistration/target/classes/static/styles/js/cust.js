@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	
-	$('#first_form').submit(function(e){
+	$('#submit').click(function(e){
 		e.preventDefault();
-		var firstname = $('#firstname').val();
-		var lastname = $('#lastname').val();
+		var firstname = $('#firstName').val();
+		var lastname = $('#lastName').val();
 		var mobile = $('#mobile').val();
-		var dateofbirth = $('#dateofbirth').val();
+		var dateofbirth = $('#dateOfBirth').val();
 		var address1 = $('#address1').val();
 		var address2 = $('#address2').val();
 		var age = $('#age').val();
@@ -14,16 +14,16 @@ $(document).ready(function() {
 		$(".error").remove();
 		
 		if (firstname.length < 1) {
-			$('#firstname').after('<span class="error" style="color:red">First Name is required</span>');
+			$('#firstName').after('<span class="error" style="color:red">First Name is required</span>');
 		}
 		if (lastname.length < 1) {
-			$('#lastname').after('<span class="error" style="color:red"> Last Name is required</span>');
+			$('#lastName').after('<span class="error" style="color:red"> Last Name is required</span>');
 		}
 		if (mobile.length < 1) {
 			$('#mobile').after('<span class="error" style="color:red"> Mobile is required</span>');
 		}
 		if (dateofbirth < 1) {
-			$('#dateofbirth').after('<span claas="error" style="color:red"> Date Of Birth is required</span>');
+			$('#dateOfBirth').after('<span claas="error" style="color:red"> Date Of Birth is required</span>');
 		}
 		if (address1.length < 1) {
 			$('#address1').after('<span class="error" style="color:red">Address is required</span>');
@@ -42,8 +42,6 @@ $(document).ready(function() {
 			if(!validEmail){
 				$('#email').after('<span class="error" style="color:red">Enter a valid email</span>')
 			}
-		}
-		
+		}	
 	});
-	
 });

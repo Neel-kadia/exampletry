@@ -19,9 +19,16 @@ public class CustomerController {
 	@GetMapping("/")
 	public String viewHomePage(Model model) {
 		model.addAttribute("listCustomer", customerService.getAllCustomers());
-		return "cust";
+		return "Customerlist";
 	}
 
+	@GetMapping("/showForm")
+	public String showForm(Model model) {
+		Customer customer = new Customer();
+		model.addAttribute("customer", customer);
+		return "CustomerAdd";
+	}
+	
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		customerService.saveCustomer(customer);
@@ -32,7 +39,7 @@ public class CustomerController {
 	public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 		Customer customer = customerService.getCustomerById(id);
 		model.addAttribute("customer", customer);
-		return "cust";
+		return "CustomerAdd";
 	}
 
 	@GetMapping("/deleteCustomer/{id}")
